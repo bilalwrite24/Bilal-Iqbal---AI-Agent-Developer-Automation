@@ -81,7 +81,7 @@ export const INITIAL_PORTFOLIO_CONFIG = {
     calendlyUrl: "https://calendly.com/bilalwrite24/strategy-call", // Editable Calendly URL
     location: "Global Remote / Available Worldwide",
     availability: "Available for New Projects & Contracts",
-    portraitImage: "/assets/aistudio/Professional_Portrait_Cutout_with_Crossed_Arms_30486fbd.png",
+    portraitImage: `${import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/'}assets/aistudio/Professional_Portrait_Cutout_with_Crossed_Arms_30486fbd.png`,
   },
   stats: [
     { label: "Professional Experience", value: "4+", unit: "Years" },
