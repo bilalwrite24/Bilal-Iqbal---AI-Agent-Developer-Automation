@@ -8,8 +8,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig(({ command }) => {
+  const isVercel = Boolean(process.env.VERCEL || process.env.VITE_DEPLOY_TARGET === 'vercel');
+  const repoBase = '/Bilal-Iqbal---AI-Agent-Developer-Automation/';
+  const base = isVercel ? '/' : (command === 'build' ? repoBase : '/');
+
   return {
-    base: command === 'build' ? '/Bilal-Iqbal---AI-Agent-Developer-Automation/' : '/',
+    base,
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
