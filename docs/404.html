@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilal Iqbal - AI Agent Developer & Automation Specialist</title>
+    <meta name="description" content="Premium portfolio of Bilal Iqbal: AI Agent Developer, AI Automation Specialist, and B2B Growth Lead Generation expert. Features live projects, service pricing scenarios, and an interactive Gemini-powered AI Assistant." />
+    <meta property="og:title" content="Bilal Iqbal - AI Agent Developer & Automation Specialist" />
+    <meta property="og:description" content="Premium portfolio of Bilal Iqbal: AI Agent Developer, AI Automation Specialist, and B2B Growth Lead Generation expert. Features live projects, service pricing scenarios, and an interactive Gemini-powered AI Assistant." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0B0F19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/Bilal-Iqbal---AI-Agent-Developer-Automation/assets/portfolio.js"></script>
+    <link rel="stylesheet" crossorigin href="/Bilal-Iqbal---AI-Agent-Developer-Automation/assets/index.css">
+  </head>
+  <body class="bg-[#0B0F19] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+    <div id="root"></div>
+
+    <!-- Vite local development entry point -->
+
+    <!-- Production fallback loader: In case GitHub Pages is configured to serve from 'main' branch root -->
+    <script>
+      (function() {
+        var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('run.app');
+        if (isLocal) return;
+
+        function injectCompiledBundle() {
+          if (window.__PORTFOLIO_LOADED__ || window.__BUNDLE_INJECTED__) return;
+          window.__BUNDLE_INJECTED__ = true;
+
+          var basePath = window.location.pathname.indexOf('/Bilal-Iqbal---AI-Agent-Developer-Automation') !== -1
+            ? '/Bilal-Iqbal---AI-Agent-Developer-Automation/'
+            : './';
+
+          // Inject CSS
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = basePath + 'dist-assets/index.css';
+          document.head.appendChild(link);
+
+          // Inject Production JS Module
+          var script = document.createElement('script');
+          script.type = 'module';
+          script.crossOrigin = 'anonymous';
+          script.src = basePath + 'dist-assets/portfolio.js';
+          document.body.appendChild(script);
+        }
+
+        // Catch failure to load /src/main.tsx
+        window.addEventListener('error', function(e) {
+          if (e.target && e.target.src && e.target.src.indexOf('main.tsx') !== -1) {
+            injectCompiledBundle();
+          }
+        }, true);
+
+        // Immediate fallback check if root is still empty after 250ms
+        setTimeout(function() {
+          var root = document.getElementById('root');
+          if (root && root.children.length === 0 && !window.__PORTFOLIO_LOADED__) {
+            injectCompiledBundle();
+          }
+        }, 250);
+      })();
+    </script>
+  </body>
+</html>

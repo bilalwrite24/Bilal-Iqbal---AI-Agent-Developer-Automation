@@ -5,6 +5,7 @@ import './index.css';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
+  (window as any).__PORTFOLIO_LOADED__ = true;
   createRoot(rootElement).render(
     <ErrorBoundary>
       <App />
