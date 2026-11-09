@@ -13,22 +13,57 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/Bilal-Iqbal---AI-Agent-Developer-Automation/assets/index-CjxS3OmX.js"></script>
-    <link rel="stylesheet" crossorigin href="/Bilal-Iqbal---AI-Agent-Developer-Automation/assets/index-rsEZS1mG.css">
+    <script type="module" crossorigin src="/Bilal-Iqbal---AI-Agent-Developer-Automation/assets/portfolio.js"></script>
+    <link rel="stylesheet" crossorigin href="/Bilal-Iqbal---AI-Agent-Developer-Automation/assets/index.css">
   </head>
   <body class="bg-[#0B0F19] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
     <div id="root"></div>
+
+    <!-- Vite local development entry point -->
+
+    <!-- Production fallback loader: In case GitHub Pages is configured to serve from 'main' branch root -->
     <script>
-      // Fallback diagnostic: In case a hosting platform serves uncompiled source files
-      window.addEventListener('DOMContentLoaded', function() {
+      (function() {
+        var isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('run.app');
+        if (isLocal) return;
+
+        function injectCompiledBundle() {
+          if (window.__PORTFOLIO_LOADED__ || window.__BUNDLE_INJECTED__) return;
+          window.__BUNDLE_INJECTED__ = true;
+
+          var basePath = window.location.pathname.indexOf('/Bilal-Iqbal---AI-Agent-Developer-Automation') !== -1
+            ? '/Bilal-Iqbal---AI-Agent-Developer-Automation/'
+            : './';
+
+          // Inject CSS
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = basePath + 'dist-assets/index.css';
+          document.head.appendChild(link);
+
+          // Inject Production JS Module
+          var script = document.createElement('script');
+          script.type = 'module';
+          script.crossOrigin = 'anonymous';
+          script.src = basePath + 'dist-assets/portfolio.js';
+          document.body.appendChild(script);
+        }
+
+        // Catch failure to load /src/main.tsx
+        window.addEventListener('error', function(e) {
+          if (e.target && e.target.src && e.target.src.indexOf('main.tsx') !== -1) {
+            injectCompiledBundle();
+          }
+        }, true);
+
+        // Immediate fallback check if root is still empty after 250ms
         setTimeout(function() {
           var root = document.getElementById('root');
-          if (root && root.children.length === 0) {
-            root.innerHTML = '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0B0F19;color:#e2e8f0;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;padding:24px;text-align:center;"><div style="max-width:540px;background:rgba(15,23,42,0.92);border:1px solid #334155;border-radius:20px;padding:36px;box-shadow:0 25px 50px -12px rgba(0,0,0,0.7);"><div style="display:inline-block;padding:8px 16px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:#fbbf24;font-size:12px;font-weight:600;border-radius:9999px;margin-bottom:16px;">⭐ TOP RATED FREELANCER</div><h1 style="font-size:24px;font-weight:700;color:#ffffff;margin:0 0 10px 0;">Bilal Iqbal</h1><p style="color:#93c5fd;font-size:14px;font-weight:500;margin:0 0 14px 0;">AI Agent Developer | AI Automation Specialist | B2B Growth</p><p style="color:#94a3b8;font-size:13px;line-height:1.6;margin:0 0 24px 0;">GitHub Pages build is finalizing. To view the live site, ensure <strong>Settings &gt; Pages &gt; Source</strong> is set to <strong>GitHub Actions</strong>.</p><div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;"><a href="mailto:bilalwrite24@gmail.com" style="background:#2563eb;color:#ffffff;padding:10px 20px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600;display:inline-block;">Email: bilalwrite24@gmail.com</a><a href="https://wa.me/923209635410" target="_blank" style="background:#059669;color:#ffffff;padding:10px 20px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:600;display:inline-block;">WhatsApp: +92 320 9635410</a></div></div></div>';
+          if (root && root.children.length === 0 && !window.__PORTFOLIO_LOADED__) {
+            injectCompiledBundle();
           }
-        }, 1500);
-      });
+        }, 250);
+      })();
     </script>
   </body>
 </html>
-
